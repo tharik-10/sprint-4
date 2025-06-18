@@ -17,7 +17,7 @@ pipeline {
         stage('Install Packages') {
             steps {
                 script {
-                    new org.opstree.AuditSteps(this).installPackages()
+                    new org.snaatak.AuditSteps(this).installPackages()
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
         stage('Clone Repositories') {
             steps {
                 script {
-                    new org.opstree.AuditSteps(this).cloneRepositories(env.ATTENDANCE_REPO, env.NOTIFICATION_REPO)
+                    new org.snaatak.AuditSteps(this).cloneRepositories(env.ATTENDANCE_REPO, env.NOTIFICATION_REPO)
                 }
             }
         }
@@ -33,7 +33,7 @@ pipeline {
         stage('Audit Attendance') {
             steps {
                 script {
-                    new org.opstree.AuditSteps(this).auditAttendance()
+                    new org.snaatak.AuditSteps(this).auditAttendance()
                 }
             }
         }
@@ -41,7 +41,7 @@ pipeline {
         stage('Audit Notification') {
             steps {
                 script {
-                    new org.opstree.AuditSteps(this).auditNotification()
+                    new org.snaatak.AuditSteps(this).auditNotification()
                 }
             }
         }
@@ -49,7 +49,7 @@ pipeline {
         stage('Publish Reports') {
             steps {
                 script {
-                    new org.opstree.AuditSteps(this).publishReports()
+                    new org.snaatak.AuditSteps(this).publishReports()
                 }
             }
         }
@@ -58,7 +58,7 @@ pipeline {
     post {
         always {
             script {
-                def notifier = new org.opstree.AuditNotifier()
+                def notifier = new org.snaatak.AuditNotifier()
                 notifier.sendNotification(
                     this,
                     currentBuild.currentResult,
