@@ -7,7 +7,7 @@ pipeline {
         ATTENDANCE_REPO = 'https://github.com/OT-MICROSERVICES/attendance-api.git'
         NOTIFICATION_REPO = 'https://github.com/OT-MICROSERVICES/notification-worker.git'
         SLACK_CHANNEL = '#jenkins-notification'
-        EMAIL_RECIPIENTS = 'snaatak.alpha@gmail.com'
+        EMAIL_RECIPIENTS = 'mtharik121@gmail.com'
         PRIORITY = 'P0'
         ATTENDANCE_REPORT_URL = "${env.BUILD_URL}pip-audit_20Report_20-_20Attendance_20API/"
         NOTIFICATION_REPORT_URL = "${env.BUILD_URL}pip-audit_20Report_20-_20Notification_20Worker/"
