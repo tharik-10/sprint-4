@@ -3,6 +3,10 @@
 pipeline {
     agent any
 
+    parameters {
+        booleanParam(name: 'ARCHIVE_REPORTS', defaultValue: true, description: 'Archive pip-audit-report.json files?')
+    }
+
     environment {
         ATTENDANCE_REPO = 'https://github.com/OT-MICROSERVICES/attendance-api.git'
         NOTIFICATION_REPO = 'https://github.com/OT-MICROSERVICES/notification-worker.git'
