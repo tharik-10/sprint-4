@@ -1,0 +1,6 @@
+---
+- name: Install and Configure Postgresql
+  hosts: tag_Name_dev-postgresql-db
+  become: yes
+  roles:
+    - roles
