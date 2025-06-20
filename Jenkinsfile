@@ -18,6 +18,14 @@ pipeline {
     }
 
     stages {
+        stage('Clean Workspace') {
+            steps {
+                script {
+                    new org.snaatak.AuditSteps(this).cleanWorkspace()
+                }
+            } 
+        }
+
         stage('Install Packages') {
             steps {
                 script {
