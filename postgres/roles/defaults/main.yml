@@ -1,0 +1,10 @@
+#SPDX-License-Identifier: MIT-0
+---
+postgres_version: 14
+postgres_listen_address: "*"
+postgres_port: 5432
+
+postgres_hba_rules:
+  - { type: "host", database: "all", user: "all", address: "127.0.0.1/32", method: "md5" }
+  - { type: "host", database: "all", user: "all", address: "0.0.0.0/0", method: "md5" }
+# defaults file for roles/postgres
