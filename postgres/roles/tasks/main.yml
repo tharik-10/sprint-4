@@ -1,0 +1,34 @@
+#SPDX-License-Identifier: MIT-0
+---
+- name: Install PostgreSQL
+  ansible.builtin.yum:
+    name: postgresql-server
+    state: present
+  become: true
+
+- name: Initialize PostgreSQL
+  command: "{{ postgres_bin_dir }}/postgresql-setup initdb"
+  args:
+    creates: "{{ postgres_data_directory }}/PG_VERSION"
+  become: true
+
+- name: Deploy postgresql.conf
+  template:
+    src: postgresql.conf.j2
+    dest: "{{ postgres_data_directory }}/postgresql.conf"
+  notify: restart postgres
+  become: true
+
+- name: Deploy pg_hba.conf
+  template:
+    src: pg_hba.conf.j2
+    dest: "{{ postgres_data_directory }}/pg_hba.conf"
+  notify: restart postgres
+  become: true
+
+- name: Enable and start PostgreSQL
+  ansible.builtin.service:
+    name: "{{ postgres_service_name }}"
+    state: started
+    enabled: true
+  become: true
