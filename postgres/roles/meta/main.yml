@@ -1,0 +1,23 @@
+---
+galaxy_info:
+  author: Mohamed Tharik
+  description: PostgreSQL installation and configuration role
+  company: MyGurukulam
+  license: MIT
+  min_ansible_version: "2.9"
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+
+  galaxy_tags:
+    - database
+    - postgresql
+    - postgres
+    - db
+
+dependencies: []
