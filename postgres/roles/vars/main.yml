@@ -1,0 +1,7 @@
+---
+# vars file for roles/postgres
+
+postgres_user: postgres
+postgres_data_directory: "/var/lib/pgsql/{{ postgres_version }}/data"
+postgres_bin_dir: "/usr/bin"
+postgres_service_name: postgresql
